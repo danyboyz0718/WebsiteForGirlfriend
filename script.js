@@ -1,3 +1,22 @@
+// Entrance Animation
+document.addEventListener('DOMContentLoaded', () => {
+    const entranceAnimation = document.querySelector('.entrance-animation');
+    const mainContent = document.querySelector('.main-content');
+    const body = document.body;
+
+    // Start the entrance sequence
+    setTimeout(() => {
+        entranceAnimation.classList.add('fade-out');
+        mainContent.classList.remove('hidden');
+        body.classList.remove('loading');
+        
+        // Remove the entrance animation from DOM after it's complete
+        setTimeout(() => {
+            entranceAnimation.remove();
+        }, 1000);
+    }, 3000); // Wait for 3 seconds before transitioning
+});
+
 // Mobile menu functionality
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');

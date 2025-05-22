@@ -1,3 +1,124 @@
+/* Entrance Animation Styles */
+.loading {
+    overflow: hidden;
+}
+
+.entrance-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out;
+}
+
+.entrance-animation.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.portal {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portal-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid #6366f1;
+    border-radius: 50%;
+    animation: portalGrow 2s ease-out forwards;
+}
+
+.portal-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: particlesRotate 20s linear infinite;
+}
+
+.portal-particles::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+    animation: particlesPulse 2s ease-out infinite;
+}
+
+.portal-text {
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: textReveal 1s ease-out 1s forwards;
+}
+
+.main-content {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.main-content.hidden {
+    opacity: 0;
+}
+
+@keyframes portalGrow {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes particlesRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes particlesPulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes textReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
